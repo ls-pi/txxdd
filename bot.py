@@ -180,7 +180,7 @@ async def process_order_flow(channel, user, order, paylink, amount):
                 if admin_ch:
                     await admin_ch.send(f'⚠️ 金額不一致: ユーザー {user.mention} / 商品 {order['product_id']} / 数量 {order['quantity']} / 期待 {amount:.2f} / 支払 {pay_amount:.2f}')
             return
-                umg_res = order_umg_service(prod['umg_service_id'], order['quantity'])
+        umg_res = order_umg_service(prod['umg_service_id'], order['quantity'])
         umg_price = float(umg_res.get('price',0) if isinstance(umg_res, dict) else 0.0)
         update_order(order['order_id'], status='completed', umg_order=umg_res, umg_price=umg_price)
         add_profit_record(order['order_id'], amount - umg_price)
