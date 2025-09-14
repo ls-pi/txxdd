@@ -1,0 +1,1 @@
+README: configure .env, ensure payapy_lib/original_login.py and original_claim_link.py exist, place .ovpn if needed or allow VPNGate fetch.
